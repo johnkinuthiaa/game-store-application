@@ -18,6 +18,7 @@ public class Users {
     private String username;
     private String email;
     private String profileImage;
+    private String password;
     @OneToOne
     private WishList wishList;
 }
