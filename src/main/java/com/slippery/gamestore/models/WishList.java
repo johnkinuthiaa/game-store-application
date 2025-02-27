@@ -17,6 +17,8 @@ public class WishList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @OneToOne
+    private Users user;
     @ManyToMany
     private List<Game> gamesInWishList;
 }

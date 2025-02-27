@@ -18,6 +18,6 @@ public class Comments {
     private String content;
     @ManyToOne
     private Users user;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Game game;
 }

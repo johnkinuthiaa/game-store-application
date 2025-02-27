@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -20,10 +21,10 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Category category;
-    @ManyToMany
-    private List<Platform> platformsSupported =new ArrayList<>();
+    @Lob
+    private List<String> platformsSupported =new ArrayList<>();
     @ManyToMany
     private List<WishList> wishLists;
     @Lob

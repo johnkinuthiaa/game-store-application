@@ -18,24 +18,24 @@ public class GameController{
     public ResponseEntity<GameDto> addGame(@RequestBody Game gameDetails,@RequestParam Long categoryId) {
         return ResponseEntity.ok(service.addGame(gameDetails,categoryId));
     }
-
-    public GameDto removeGame(Long gameId) {
-        return null;
+    @DeleteMapping("/{gameId}/delete")
+    public ResponseEntity<GameDto> removeGame(@PathVariable Long gameId) {
+        return ResponseEntity.ok(service.removeGame(gameId));
     }
-
-    public GameDto findGameById(Long gameId) {
-        return null;
+    @GetMapping("/{gameId}/get")
+    public ResponseEntity<GameDto> findGameById(@PathVariable Long gameId) {
+        return ResponseEntity.ok(service.findGameById(gameId));
     }
-
-    public GameDto findAllGames() {
-        return null;
+    @GetMapping("/all")
+    public ResponseEntity<GameDto> findAllGames() {
+        return ResponseEntity.ok(service.findAllGames());
     }
-
-    public GameDto deleteAllGames() {
-        return null;
+    @DeleteMapping("/delete/all")
+    public ResponseEntity<GameDto> deleteAllGames() {
+        return ResponseEntity.ok(service.deleteAllGames());
     }
-
-    public GameDto updateGame(Long gameId, Game updateDetails) {
-        return null;
+    @PutMapping("/{gameId}/update")
+    public ResponseEntity<GameDto> updateGame(@PathVariable Long gameId,@RequestBody Game updateDetails) {
+        return ResponseEntity.ok(service.updateGame(gameId, updateDetails));
     }
 }
