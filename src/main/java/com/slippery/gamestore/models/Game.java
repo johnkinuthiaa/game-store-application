@@ -20,7 +20,7 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
     @ManyToMany
     private List<Platform> platformsSupported =new ArrayList<>();
@@ -29,6 +29,6 @@ public class Game {
     @Lob
     private byte[] gameImage;
     private LocalDateTime addedOn;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Comments> commentsForGame;
 }

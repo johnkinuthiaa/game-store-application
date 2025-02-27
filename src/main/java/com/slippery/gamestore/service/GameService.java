@@ -4,7 +4,7 @@ import com.slippery.gamestore.dto.GameDto;
 import com.slippery.gamestore.models.Game;
 
 public interface GameService {
-    GameDto addGame(Game gameDetails);
+    GameDto addGame(Game gameDetails,Long categoryId);
     GameDto removeGame(Long gameId);
     GameDto findGameById(Long gameId);
     GameDto findAllGames();

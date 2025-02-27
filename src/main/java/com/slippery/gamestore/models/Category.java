@@ -19,6 +19,6 @@ public class Category {
     private Long id;
     private String name;
     private String descriptions;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Game> gamesInCategory;
 }
