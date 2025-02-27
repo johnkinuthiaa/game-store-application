@@ -3,6 +3,7 @@ package com.slippery.gamestore.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.slippery.gamestore.models.Category;
+import com.slippery.gamestore.models.Game;
 import lombok.Data;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public class CategoryDto {
     private Integer statusCode;
     private Category category;
     private List<Category> categories;
+    private List<Game> games;
 }
