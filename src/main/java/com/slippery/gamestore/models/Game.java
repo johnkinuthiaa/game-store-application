@@ -1,5 +1,8 @@
 package com.slippery.gamestore.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,10 +29,12 @@ public class Game {
     @Lob
     private List<String> platformsSupported =new ArrayList<>();
     @ManyToMany
+    @JsonIgnore
     private List<WishList> wishLists;
     @Lob
     private byte[] gameImage;
     private LocalDateTime addedOn;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Comments> commentsForGame;
 }

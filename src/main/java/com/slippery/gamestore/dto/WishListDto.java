@@ -2,6 +2,7 @@ package com.slippery.gamestore.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.slippery.gamestore.models.Game;
 import com.slippery.gamestore.models.WishList;
 import lombok.Data;
 
@@ -15,4 +16,5 @@ public class WishListDto {
     private Integer statusCode;
     private WishList wishList;
     private List<WishList> wishLists;
+    private List<Game> GameList;
 }

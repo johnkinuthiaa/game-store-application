@@ -1,5 +1,6 @@
 package com.slippery.gamestore.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,11 +20,11 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     private Users user;
     @ManyToOne
-    @JsonIgnore
+    @JsonBackReference
     private Game game;
     private LocalDateTime createdOn =LocalDateTime.now();
 }
