@@ -22,7 +22,7 @@ public class Comments {
     @ManyToOne
     @JsonIgnore
     private Users user;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JsonIgnore
     private Game game;
     private LocalDateTime createdOn =LocalDateTime.now();

@@ -1,10 +1,13 @@
 package com.slippery.gamestore.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -19,6 +22,8 @@ public class Users {
     private String email;
     private String profileImage;
     private String password;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private WishList wishList;
+    private LocalDateTime createdOn;
 }

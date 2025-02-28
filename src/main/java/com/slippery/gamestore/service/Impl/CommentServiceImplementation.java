@@ -3,6 +3,7 @@ package com.slippery.gamestore.service.Impl;
 import com.slippery.gamestore.dto.CommentsDto;
 import com.slippery.gamestore.dto.GameDto;
 import com.slippery.gamestore.models.Comments;
+import com.slippery.gamestore.models.Game;
 import com.slippery.gamestore.models.Users;
 import com.slippery.gamestore.repository.CommentsRepository;
 import com.slippery.gamestore.repository.GameRepository;
@@ -62,6 +63,11 @@ public class CommentServiceImplementation implements CommentService {
         if(existingComment.getStatusCode() !=200){
             return existingComment;
         }
+        var commentsInGame =existingComment.getComment().getGame().getCommentsForGame();
+        commentsInGame.remove(existingComment.getComment());
+        Game game = existingComment.getComment().getGame();
+        game.setCommentsForGame(commentsInGame);
+//        gameRepository.save(game);
         repository.delete(existingComment.getComment());
         response.setMessage("Comment deleted successfully");
         response.setStatusCode(200);
